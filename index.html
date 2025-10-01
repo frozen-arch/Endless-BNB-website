@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Endless – Embrace Endless Possibilities</title>
+  <!-- Google Font for modern typography (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ====== Base Styles and Theme ====== */
+    :root {
+      --bg-color: #FFFFFF;         /* page background color (white) */
+      --text-color: #111111;      /* primary text color (near-black for good contrast) */
+      --accent-color: #F0C808;    /* accent color (golden yellow for Endless theme) */
+      --accent-color-darker: #d8af07; /* a slightly darker shade for hover effects */
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      margin: 0;
+    }
+    p {
+      margin: 0.5em 0 1em;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Utility classes for layout */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .center {
+      text-align: center;
+    }
+
+    /* ====== Hero Section ====== */
+    #hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(180deg, #ffffff 0%, #fdfdfd 100%); /* subtle gradient background */
+    }
+    #hero img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+    #hero h1 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+    }
+    #hero p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    /* Call-to-Action Button */
+    .buy-button {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #000;  /* black text for high contrast on gold */
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .buy-button:hover {
+      background: var(--accent-color-darker);
+      transform: translateY(-2px);
+    }
+    .buy-button:active {
+      transform: translateY(0); /* button press feedback */
+    }
+
+    /* ====== About/Message Section ====== */
+    #about {
+      padding: 3rem 1rem;
+      background: #f9f9f9;
+    }
+    #about .container {
+      max-width: 800px;
+    }
+    #about h2 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    #about p {
+      font-size: 1rem;
+      text-align: center;
+    }
+    /* Scroll-reveal animation (fade-in up) */
+    .hidden {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ====== Meme Gallery/Carousel Section ====== */
+    #gallery {
+      padding: 3rem 1rem;
+      background: #ffffff;
+    }
+    #gallery h2 {
+      font-size: 1.6rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .carousel {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .carousel img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .carousel img.active {
+      opacity: 1;
+      position: relative;
+    }
+    /* (The active image is positioned normally so that the carousel container adjusts to its height) */
+
+    /* ====== Footer Section ====== */
+    #footer {
+      background: #111111;
+      padding: 2rem 1rem;
+      color: #ffffff;
+    }
+    #footer .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    #footer .social-links a {
+      color: #ffffff;
+      font-size: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    #footer .social-links svg {
+      /* SVG icons inherit parent link color (white) */
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+      margin-right: 0.5em;
+    }
+    #footer p {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #cccccc;
+      margin: 0;
+    }
+
+    /* ====== Responsive Design Tweaks ====== */
+    @media (min-width: 768px) {
+      #hero {
+        flex-direction: row;
+        text-align: left;
+      }
+      #hero img {
+        flex: 1;
+        max-width: 50%;
+        margin-right: 2rem;
+        margin-bottom: 0; /* remove bottom margin when side-by-side */
+      }
+      #hero .hero-text {
+        flex: 1;
+      }
+      #hero h1 {
+        font-size: 2.5rem;
+      }
+      #hero p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container center hero-content">
+      <img src="banner.png" alt="Endless Logo Banner" />  <!-- Logo/Banner image -->
+      <div class="hero-text">
+        <h1>Embrace Endless Possibilities</h1>
+        <p>Join the movement. <strong>Endless</strong> is a community-driven memecoin with no limits on imagination.</p>
+        <a href="https://pancakeswap.finance/swap?outputCurrency=0x7abf606f3c1fbef2eb02faeab52b12e325224444" target="_blank" rel="noopener" class="buy-button">Buy Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About/Message Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="hidden">What is Endless?</h2>
+      <p class="hidden">
+        <strong>Endless</strong> isn’t just a token – it’s a philosophy. Built on BNB Chain, Endless represents <br>
+        infinite creativity, boundless opportunity, and the power of a united community. <br>
+        We believe the only limit is our imagination, and everyone is invited to be part of it.
+      </p>
+      <p class="hidden">
+        Whether you’re a crypto veteran or a newcomer, Endless opens the door for you. <br>
+        Dream big, laugh loud, and join a movement where <em>endless possibilities</em> await. <br>
+        Together, we’re pushing the boundaries of what a meme coin can be. Welcome to the family!
+      </p>
+    </div>
+  </section>
+
+  <!-- Meme/Visual Gallery Section (Carousel) -->
+  <section id="gallery">
+    <div class="container">
+      <h2>Community Gallery</h2>
+      <div class="carousel">
+        <!-- Placeholder images for memes/visuals -->
+        <img src="meme1.png" alt="Meme 1" class="active" />
+        <img src="meme2.png" alt="Meme 2" />
+        <img src="meme3.png" alt="Meme 3" />
+        <img src="meme4.png" alt="Meme 4" />
+        <img src="meme5.png" alt="Meme 5" />
+        <img src="meme6.png" alt="Meme 6" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <!-- X (Twitter) link -->
+        <a href="https://x.com/endless_bsc" target="_blank" rel="noopener">
+          <!-- X icon SVG -->
+          <svg viewBox="0 0 1200 1227" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <!-- Visually hidden text for accessibility: -->
+          <span style="position: absolute; left: -9999px;">X (Twitter)</span>
+        </a>
+        <!-- Telegram link -->
+        <a href="https://t.me/endless_bsc" target="_blank" rel="noopener">
+          <!-- Telegram paper plane icon SVG -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.91 3.79L20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.56-1.1.56-.72 0-.6-.27-.84-.95L6.3 13.7l-5.45-1.7c-1.18-.35-1.19-1.16.26-1.75l21.26-8.2c.97-.43 1.9.24 1.53 1.73z"/></svg>
+          <span style="position: absolute; left: -9999px;">Telegram</span>
+        </a>
+      </div>
+      <p>&copy; 2025 Endless. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for interactivity -->
+  <script>
+    // ===== Carousel Functionality =====
+    const carousel = document.querySelector('.carousel');
+    const slides = carousel.querySelectorAll('img');
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    // Auto-rotate slides every 3 seconds
+    setInterval(() => {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slideCount;
+      slides[currentIndex].classList.add('active');
+    }, 3000);
+
+    // ===== Scroll Reveal Animation =====
+    const revealElements = document.querySelectorAll('.hidden');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          revealObserver.unobserve(entry.target); // reveal each element only once
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
